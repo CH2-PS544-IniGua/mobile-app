@@ -61,7 +61,7 @@ class CatalogFragment : Fragment() {
             footer = LoadingStateAdapter { adapter.retry() }
         )
 
-        viewModel.stories().observe(viewLifecycleOwner) {
+        viewModel.products().observe(viewLifecycleOwner) {
             adapter.submitData(lifecycle, it)
             adapter.setOnItemClickCallback(
                 object : ProductAdapter.OnItemClickCallback {

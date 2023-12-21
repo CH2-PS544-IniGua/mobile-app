@@ -45,7 +45,7 @@ class UserRepository private constructor(
         )
     }
 
-    fun getStories(): LiveData<PagingData<CatalogItem>> {
+    fun getProducts(): LiveData<PagingData<CatalogItem>> {
         @OptIn(ExperimentalPagingApi::class)
         return Pager(
             config = PagingConfig(pageSize = 6),

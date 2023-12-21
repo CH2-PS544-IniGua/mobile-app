@@ -27,10 +27,10 @@ class MainViewModel(private val repository: UserRepository) : ViewModel() {
         repository.changeApiService(token)
     }
 
-    private val storiesLiveData: LiveData<PagingData<CatalogItem>> by lazy {
-        return@lazy repository.getStories().cachedIn(viewModelScope)
+    private val productsLiveData: LiveData<PagingData<CatalogItem>> by lazy {
+        return@lazy repository.getProducts().cachedIn(viewModelScope)
     }
 
-    fun stories() = storiesLiveData
+    fun products() = productsLiveData
 
 }
