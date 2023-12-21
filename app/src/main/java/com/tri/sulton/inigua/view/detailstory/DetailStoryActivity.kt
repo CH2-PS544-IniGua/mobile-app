@@ -53,10 +53,10 @@ class DetailStoryActivity : AppCompatActivity() {
 
     private fun setupView(catalogItem: CatalogItem) {
         with(binding) {
-            tvName.text = catalogItem.title
+//            tvName.text = catalogItem.title
             Glide.with(this@DetailStoryActivity)
                 .load(catalogItem.image)
-                .into(imgStory)
+                .into(image)
             tvDescription.text = catalogItem.short_desc
         }
     }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tri.sulton.inigua.data.api.model.response.CatalogItem
 import com.tri.sulton.inigua.databinding.FragmentCatalogBinding
@@ -50,7 +51,7 @@ class CatalogFragment : Fragment() {
 
     private fun setupRecyclerView() {
         with(binding) {
-            rv.layoutManager = LinearLayoutManager(requireContext())
+            rv.layoutManager = GridLayoutManager(requireContext(), 2)
             rv.setHasFixedSize(true)
         }
     }
