@@ -28,12 +28,6 @@ class ProfileFragment : Fragment() {
         ViewModelFactory.getInstance(requireContext())
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setHasOptionsMenu(true)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -79,20 +73,6 @@ class ProfileFragment : Fragment() {
             }
         }
     }
-
-//    private fun setupView() {
-////        (context as AppCompatActivity).setSupportActionBar(binding.toolbar)
-//        setHasOptionsMenu(true)
-//    }
-
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        inflater.inflate(R.menu.main_menu, menu)
-//
-//    }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return
-//    }
 
     override fun onDestroy() {
         super.onDestroy()

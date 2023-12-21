@@ -2,24 +2,16 @@ package com.tri.sulton.inigua.view.catalog
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Settings
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.tri.sulton.inigua.R
 import com.tri.sulton.inigua.data.api.model.response.CatalogItem
 import com.tri.sulton.inigua.databinding.FragmentCatalogBinding
 import com.tri.sulton.inigua.view.ViewModelFactory
 import com.tri.sulton.inigua.view.detailstory.DetailStoryActivity
-import com.tri.sulton.inigua.view.upload.UploadActivity
 import com.tri.sulton.inigua.view.welcome.WelcomeActivity
 
 class CatalogFragment : Fragment() {
@@ -48,8 +40,6 @@ class CatalogFragment : Fragment() {
                 activity?.finish()
             } else {
                 viewModel.changeApiService(user.token)
-//                setupView()
-                setupAction()
                 setupRecyclerView()
                 setupAdapter()
             }
@@ -82,12 +72,6 @@ class CatalogFragment : Fragment() {
                     }
                 }
             )
-        }
-    }
-
-    private fun setupAction() {
-        binding.fab.setOnClickListener {
-            startActivity(Intent(requireContext(), UploadActivity::class.java))
         }
     }
 

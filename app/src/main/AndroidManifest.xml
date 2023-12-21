@@ -33,10 +33,6 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.upload.UploadActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".view.detailstory.DetailStoryActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

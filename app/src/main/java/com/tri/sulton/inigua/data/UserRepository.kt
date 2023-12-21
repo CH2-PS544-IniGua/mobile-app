@@ -58,11 +58,11 @@ class UserRepository private constructor(
 
     fun getDetailStory(id: String) = apiService.getDetailCatalog(id)
 
-    fun uploadImage(imageFile: File, description: String) = liveData {
+    fun uploadImage(imageFile: File, username: String) = liveData {
         emit(ResultState.Loading)
 
         wrapEspressoIdlingResource {
-            val requestBody = description.toRequestBody("text/plain".toMediaType())
+            val requestBody = username.toRequestBody("text/plain".toMediaType())
             val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
             val multipartBody = MultipartBody.Part.createFormData(
                 "photo",

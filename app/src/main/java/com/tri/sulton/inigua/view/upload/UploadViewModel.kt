@@ -5,5 +5,5 @@ import com.tri.sulton.inigua.data.UserRepository
 import java.io.File
 
 class UploadViewModel(private val repository: UserRepository) : ViewModel() {
-    fun uploadImage(file: File, description: String) = repository.uploadImage(file, description)
+    fun uploadImage(file: File, username: String) = repository.uploadImage(file, username)
 }
