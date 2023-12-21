@@ -11,7 +11,7 @@ import com.tri.sulton.inigua.data.database.RemoteKeys
 import com.tri.sulton.inigua.data.database.IniGuaDatabase
 
 @OptIn(ExperimentalPagingApi::class)
-class StoryRemoteMediator(
+class ProductRemoteMediator(
     private val database: IniGuaDatabase,
     private val apiService: ApiService,
 ) : RemoteMediator<Int, CatalogItem>() {
@@ -55,7 +55,7 @@ class StoryRemoteMediator(
             database.withTransaction {
                 if (loadType == LoadType.REFRESH) {
                     database.remoteKeysDao().deleteRemoteKeys()
-                    database.storyDao().deleteAll()
+                    database.productDao().deleteAll()
                 }
                 val prevKey = if (page == 1) null else page - 1
                 val nextKey = if (endOfPaginationReached) null else page + 1
@@ -63,7 +63,7 @@ class StoryRemoteMediator(
                     RemoteKeys(id = it.id, prevKey = prevKey, nextKey = nextKey)
                 }
                 database.remoteKeysDao().insertAll(keys)
-                database.storyDao().insertCatalog(responseData)
+                database.productDao().insertCatalog(responseData)
             }
             return MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
         } catch (exception: Exception) {

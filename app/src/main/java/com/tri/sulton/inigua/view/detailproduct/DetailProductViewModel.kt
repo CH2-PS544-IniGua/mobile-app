@@ -1,4 +1,4 @@
-package com.tri.sulton.inigua.view.detailstory
+package com.tri.sulton.inigua.view.detailproduct
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailStoryViewModel(private val repository: UserRepository) : ViewModel() {
+class DetailProductViewModel(private val repository: UserRepository) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
@@ -21,10 +21,10 @@ class DetailStoryViewModel(private val repository: UserRepository) : ViewModel()
 
     var id = ""
 
-    private val storyLiveData: LiveData<CatalogItem> by lazy {
-        val story = MutableLiveData<CatalogItem>()
+    private val productLiveData: LiveData<CatalogItem> by lazy {
+        val item = MutableLiveData<CatalogItem>()
         _isLoading.value = true
-        val client = repository.getDetailStory(id)
+        val client = repository.getDetailProduct(id)
         client.enqueue(object : Callback<CommonResponse<CatalogItem>> {
             override fun onResponse(
                 call: Call<CommonResponse<CatalogItem>>,
@@ -33,7 +33,7 @@ class DetailStoryViewModel(private val repository: UserRepository) : ViewModel()
                 _isLoading.value = false
                 val responseBody = response.body()
                 if (response.isSuccessful && responseBody != null) {
-                    story.value = responseBody.data
+                    item.value = responseBody.data
 
                 } else {
                     _errorResponse.value = Constant.getErrorResponse(response.errorBody()!!.string())
@@ -48,11 +48,11 @@ class DetailStoryViewModel(private val repository: UserRepository) : ViewModel()
                 )
             }
         })
-        return@lazy story
+        return@lazy item
     }
 
-    fun getStory(id: String): LiveData<CatalogItem> {
+    fun getProduct(id: String): LiveData<CatalogItem> {
         this.id = id
-        return storyLiveData
+        return productLiveData
     }
 }

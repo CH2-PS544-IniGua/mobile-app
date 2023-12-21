@@ -13,7 +13,7 @@ import com.tri.sulton.inigua.data.api.model.response.CatalogItem
 )
 abstract class IniGuaDatabase : RoomDatabase() {
 
-    abstract fun storyDao(): CatalogDao
+    abstract fun productDao(): CatalogDao
     abstract fun remoteKeysDao(): RemoteKeysDao
 
     companion object {

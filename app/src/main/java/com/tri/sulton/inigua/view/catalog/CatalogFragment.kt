@@ -8,11 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.tri.sulton.inigua.data.api.model.response.CatalogItem
 import com.tri.sulton.inigua.databinding.FragmentCatalogBinding
 import com.tri.sulton.inigua.view.ViewModelFactory
-import com.tri.sulton.inigua.view.detailstory.DetailStoryActivity
+import com.tri.sulton.inigua.view.detailproduct.DetailProductActivity
 import com.tri.sulton.inigua.view.welcome.WelcomeActivity
 
 class CatalogFragment : Fragment() {
@@ -57,7 +56,7 @@ class CatalogFragment : Fragment() {
     }
 
     private fun setupAdapter() {
-        val adapter = StoryAdapter()
+        val adapter = ProductAdapter()
         binding.rv.adapter = adapter.withLoadStateFooter(
             footer = LoadingStateAdapter { adapter.retry() }
         )
@@ -65,10 +64,10 @@ class CatalogFragment : Fragment() {
         viewModel.stories().observe(viewLifecycleOwner) {
             adapter.submitData(lifecycle, it)
             adapter.setOnItemClickCallback(
-                object : StoryAdapter.OnItemClickCallback {
+                object : ProductAdapter.OnItemClickCallback {
                     override fun onItemClicked(item: CatalogItem) {
-                        val intent = Intent(requireContext(), DetailStoryActivity::class.java)
-                        intent.putExtra(DetailStoryActivity.ID, item.id)
+                        val intent = Intent(requireContext(), DetailProductActivity::class.java)
+                        intent.putExtra(DetailProductActivity.ID, item.id)
                         startActivity(intent)
                     }
                 }

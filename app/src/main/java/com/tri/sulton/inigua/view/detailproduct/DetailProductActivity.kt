@@ -1,4 +1,4 @@
-package com.tri.sulton.inigua.view.detailstory
+package com.tri.sulton.inigua.view.detailproduct
 
 import android.os.Bundle
 import android.view.View
@@ -6,26 +6,26 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.tri.sulton.inigua.R
 import com.tri.sulton.inigua.data.api.model.response.CatalogItem
-import com.tri.sulton.inigua.databinding.ActivityDetailStoryBinding
-import com.tri.sulton.inigua.helper.timeSince
+import com.tri.sulton.inigua.databinding.ActivityDetailProductBinding
+import com.tri.sulton.inigua.helper.Constant.currency
 import com.tri.sulton.inigua.view.ViewModelFactory
 
-class DetailStoryActivity : AppCompatActivity() {
+class DetailProductActivity : AppCompatActivity() {
 
-    private var _binding: ActivityDetailStoryBinding? = null
+    private var _binding: ActivityDetailProductBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by viewModels<DetailStoryViewModel> {
+    private val viewModel by viewModels<DetailProductViewModel> {
         ViewModelFactory.getInstance(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityDetailStoryBinding.inflate(layoutInflater)
+        _binding = ActivityDetailProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
         setupObservation()
     }
 
@@ -34,9 +34,9 @@ class DetailStoryActivity : AppCompatActivity() {
             showLoading(isLoading)
         }
 
-        viewModel.getStory(intent.getStringExtra(ID) ?: "").observe(this) { story ->
-            if (story != null) {
-                setupView(story)
+        viewModel.getProduct(intent.getStringExtra(ID) ?: "").observe(this) { product ->
+            if (product != null) {
+                setupView(product)
             }
         }
 
@@ -53,11 +53,12 @@ class DetailStoryActivity : AppCompatActivity() {
 
     private fun setupView(catalogItem: CatalogItem) {
         with(binding) {
-//            tvName.text = catalogItem.title
-            Glide.with(this@DetailStoryActivity)
+            title.text = catalogItem.title
+            Glide.with(this@DetailProductActivity)
                 .load(catalogItem.image)
                 .into(image)
-            tvDescription.text = catalogItem.short_desc
+            price.text = currency(catalogItem.price)
+            shortDesc.text = catalogItem.short_desc
         }
     }
 

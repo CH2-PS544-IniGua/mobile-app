@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.tri.sulton.inigua.data.UserRepository
 import com.tri.sulton.inigua.di.Injection
-import com.tri.sulton.inigua.view.detailstory.DetailStoryViewModel
+import com.tri.sulton.inigua.view.detailproduct.DetailProductViewModel
 import com.tri.sulton.inigua.view.login.LoginViewModel
 import com.tri.sulton.inigua.view.catalog.MainViewModel
 import com.tri.sulton.inigua.view.register.RegisterViewModel
@@ -25,8 +25,8 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(repository) as T
             }
-            modelClass.isAssignableFrom(DetailStoryViewModel::class.java) -> {
-                DetailStoryViewModel(repository) as T
+            modelClass.isAssignableFrom(DetailProductViewModel::class.java) -> {
+                DetailProductViewModel(repository) as T
             }
             modelClass.isAssignableFrom(UploadViewModel::class.java) -> {
                 UploadViewModel(repository) as T
