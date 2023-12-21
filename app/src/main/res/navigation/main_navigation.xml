@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.tri.sulton.inigua.view.catalog.CatalogFragment"
+        android:label="fragment_catalog"
+        tools:layout="@layout/fragment_catalog" />
+
+    <fragment
+        android:id="@+id/navigation_upload"
+        android:name="com.tri.sulton.inigua.view.upload.UploadFragment"
+        android:label="@string/title_upload"
+        tools:layout="@layout/fragment_upload" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.tri.sulton.inigua.view.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="signup">注册</string>
+    <string name="login">登录</string>
+    <string name="message_welcome_page">每个人都有自己的生活。与他人分享吧。</string>
+    <string name="title_welcome_page">用我的故事应用讲述你的故事。</string>
+    <string name="email">电子邮件</string>
+    <string name="password">密码</string>
+    <string name="name">姓名</string>
+    <string name="logout">退出</string>
+    <string name="error_msg_email">电子邮件无效</string>
+    <string name="error_msg_password">"密码不得少于8个字符"</string>
+    <string name="camera_x">CameraX</string>
+    <string name="camera">相机</string>
+    <string name="gallery">画廊</string>
+    <string name="upload">上传</string>
+    <string name="empty_image_warning">请首先输入图像文件。</string>
+    <string name="descriptionLabel">描述</string>
+    <string name="have_no_account">还没有账户？</string>
+    <string name="already_have_account">已经有账户？</string>
+    <string name="language">语言</string>
+    <string name="signout">登出</string>
+    <string name="failed_open_camera">无法启动相机</string>
+    <string name="failed_take_photo">获取图像失败</string>
+</resources>

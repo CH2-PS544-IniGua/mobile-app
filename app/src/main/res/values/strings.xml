@@ -1,15 +1,38 @@
 <resources>
-    <string name="app_name">INIGUA</string>
-    <string name="menu_home">Home</string>
-    <string name="menu_cart">Keranjang</string>
-    <string name="menu_profile">Profile</string>
-    <string name="minus_symbol">—</string>
-    <string name="plus_symbol">＋</string>
-    <string name="add_to_cart">Tambah ke Keranjang : Rp%d</string>
-    <string name="total_order">Total pesanan : Rp%d</string>
-    <string name="back">Back</string>
-    <string name="rupiah">Rp%d</string>
-    <string name="search">Search by Keyword</string>
-    <string name="inigua_style">IniGua Style</string>
-    <string name="share_message">Hey, I have bought %1$d products in IniGua with total price Rp%2$d.</string>
+    <string name="app_name" translatable="false">Ini Gua</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">Log In</string>
+    <string name="message_welcome_page">Every human has their own life. Share yours with others.</string>
+    <string name="title_welcome_page">Tell your story with Cerita Punyaku app.</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="logout">Log Out</string>
+    <string name="error_msg_email">Invalid email</string>
+    <string name="error_msg_password">"Password must not be less than 8 characters"</string>
+    <string name="camera_x">CameraX</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="upload">Upload</string>
+    <string name="empty_image_warning">Please enter an image file first.</string>
+    <string name="descriptionLabel">Description</string>
+    <string name="have_no_account">Don\'t have an account?</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="language">Language</string>
+    <string name="signout">Sign Out</string>
+    <string name="failed_open_camera">Failed open camera</string>
+    <string name="failed_take_photo">Failed to capture image</string>
+    <string name="map">Map</string>
+    <string name="title_activity_maps" translatable="false">MapsActivity</string>
+    <string name="logout_message">Are you sure you want logout?</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+    <string name="use_location">Use my location</string>
+    <string name="location_text" translatable="false">(%1$f, %2$f)</string>
+    <string name="title_home">Home</string>
+    <string name="title_upload">Upload</string>
+    <string name="title_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

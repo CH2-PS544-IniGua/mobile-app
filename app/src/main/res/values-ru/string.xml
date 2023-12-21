@@ -1,0 +1,24 @@
+<resources>
+    <string name="signup">Регистрация</string>
+    <string name="login">Войти</string>
+    <string name="message_welcome_page">У каждого человека своя жизнь. Поделитесь ей с другими.</string>
+    <string name="title_welcome_page">Расскажите свою историю с помощью приложения Cerita Punyaku.</string>
+    <string name="email">Электронная Почта</string>
+    <string name="password">Пароль</string>
+    <string name="name">Имя</string>
+    <string name="logout">Выйти</string>
+    <string name="error_msg_email">Неверный адрес электронной почты</string>
+    <string name="error_msg_password">"Пароль не должен быть короче 8 символов"</string>
+    <string name="camera_x">CameraX</string>
+    <string name="camera">Камера</string>
+    <string name="gallery">Галерея</string>
+    <string name="upload">Загрузить</string>
+    <string name="empty_image_warning">Пожалуйста, сначала выберите файл изображения.</string>
+    <string name="descriptionLabel">Описание</string>
+    <string name="have_no_account">Еще нет аккаунта?</string>
+    <string name="already_have_account">Уже есть аккаунт?</string>
+    <string name="language">Язык</string>
+    <string name="signout">Выйти</string>
+    <string name="failed_open_camera">Не удалось включить камеру</string>
+    <string name="failed_take_photo">Не удалось сделать снимок</string>
+</resources>

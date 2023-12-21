@@ -1,0 +1,24 @@
+<resources>
+    <string name="signup">Registrieren</string>
+    <string name="login">Anmelden</string>
+    <string name="message_welcome_page">Jeder Mensch hat sein eigenes Leben. Teile es mit anderen.</string>
+    <string name="title_welcome_page">Erzähle deine Geschichte mit der App Cerita Punyaku.</string>
+    <string name="email">E-Mail</string>
+    <string name="password">Passwort</string>
+    <string name="name">Name</string>
+    <string name="logout">Abmelden</string>
+    <string name="error_msg_email">Ungültige E-Mail</string>
+    <string name="error_msg_password">"Das Passwort darf nicht weniger als 8 Zeichen haben"</string>
+    <string name="camera_x">CameraX</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galerie</string>
+    <string name="upload">Hochladen</string>
+    <string name="empty_image_warning">Bitte laden Sie zuerst eine Bilddatei hoch.</string>
+    <string name="descriptionLabel">Beschreibung</string>
+    <string name="have_no_account">Noch kein Konto?</string>
+    <string name="already_have_account">Bereits ein Konto?</string>
+    <string name="language">Sprache</string>
+    <string name="signout">Ausloggen</string>
+    <string name="failed_open_camera">Kamera konnte nicht gestartet werden</string>
+    <string name="failed_take_photo">Bildaufnahme fehlgeschlagen</string>
+</resources>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="signup">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="message_welcome_page">Setiap manusia memiliki kehidupannya masing-masing. Bagikanlah kepada manusia lain.</string>
+    <string name="title_welcome_page">Ceritakan ceritamu dengan aplikasi Cerita Punyaku.</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="name">Nama</string>
+    <string name="logout">Keluar</string>
+    <string name="error_msg_email">Email tidak valid</string>
+    <string name="error_msg_password">"Password tidak boleh kurang dari 8 karakter"</string>
+    <string name="camera_x">CameraX</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="upload">Unggah</string>
+    <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu.</string>
+    <string name="descriptionLabel">Deskripsi</string>
+    <string name="have_no_account">Belum punya akun?</string>
+    <string name="already_have_account">Sudah punya akun?</string>
+    <string name="language">Bahasa</string>
+    <string name="signout">Keluar</string>
+    <string name="failed_open_camera">Gagal memunculkan kamera</string>
+    <string name="failed_take_photo">Gagal mengambil gambar</string>
+</resources>

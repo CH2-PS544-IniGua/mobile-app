@@ -1,0 +1,9 @@
+{
+  "error": false,
+  "message": "success",
+  "loginResult": {
+    "userId": "user-NvmP33EmCL0W_Z5J",
+    "name": "cing",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLU52bVAzM0VtQ0wwV19aNUoiLCJpYXQiOjE3MDA1Mzg3MTB9.5OtWgp_I1w5mlMrvGN92W_R2PFOYzsNSZdvUL5QqlLQ"
+  }
+}
