@@ -21,6 +21,34 @@ class DetailProductViewModel(private val repository: UserRepository) : ViewModel
 
     var id = ""
 
+    private val _pantsRecommendation = MutableLiveData<List<CatalogItem>>()
+    val pantsRecommendation: LiveData<List<CatalogItem>> = _pantsRecommendation
+
+    fun getPantsRecommendation(color: String) {
+        val client = repository.getPantsRecommendation(color)
+        client.enqueue(object : Callback<CommonResponse<List<CatalogItem>>> {
+            override fun onResponse(
+                call: Call<CommonResponse<List<CatalogItem>>>,
+                response: Response<CommonResponse<List<CatalogItem>>>
+            ) {
+                _isLoading.value = false
+                val responseBody = response.body()
+                if (response.isSuccessful && responseBody != null) {
+                    _pantsRecommendation.value = responseBody.data
+                } else {
+                    _errorResponse.value = Constant.getErrorResponse(response.errorBody()!!.string())
+                }
+            }
+
+            override fun onFailure(call: Call<CommonResponse<List<CatalogItem>>>, t: Throwable) {
+                _errorResponse.value = ErrorResponse(
+                    error = true,
+                    message = t.message.toString()
+                )
+            }
+        })
+    }
+
     private val productLiveData: LiveData<CatalogItem> by lazy {
         val item = MutableLiveData<CatalogItem>()
         _isLoading.value = true

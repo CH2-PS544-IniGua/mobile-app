@@ -7,8 +7,8 @@ import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.tri.sulton.inigua.data.api.model.response.CatalogItem
 import com.tri.sulton.inigua.data.api.retrofit.ApiService
-import com.tri.sulton.inigua.data.database.RemoteKeys
 import com.tri.sulton.inigua.data.database.IniGuaDatabase
+import com.tri.sulton.inigua.data.database.RemoteKeys
 
 @OptIn(ExperimentalPagingApi::class)
 class ProductRemoteMediator(

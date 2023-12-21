@@ -3,9 +3,6 @@ package com.tri.sulton.inigua.helper
 import com.google.gson.Gson
 import com.tri.sulton.inigua.data.api.model.response.ErrorResponse
 import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.text.NumberFormat
-import java.util.Locale
 
 object Constant {
     fun getErrorResponse(response: String): ErrorResponse {

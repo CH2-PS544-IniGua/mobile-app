@@ -113,4 +113,6 @@ dependencies {
     implementation("androidx.compose.runtime:runtime-livedata") //observeAsState
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1") //ConstraintLayout
     implementation("io.coil-kt:coil-compose:2.2.2") //AsyncImage
+
+    implementation("androidx.compose.material:material-icons-extended")
 }

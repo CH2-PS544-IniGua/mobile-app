@@ -31,7 +31,7 @@ interface ApiService {
     ): Call<LoginResponse>
 
     @Multipart
-    @POST("stories")
+    @POST("fashion")
     suspend fun upload(
         @Part file: MultipartBody.Part,
         @Part("description") description: RequestBody,
@@ -46,4 +46,13 @@ interface ApiService {
     @GET("catalog/{id}")
     fun getDetailCatalog(
         @Path("id") id: String): Call<CommonResponse<CatalogItem>>
+
+    @GET("catalog/recommendation/pants/{color}")
+    fun getPantsRecommendation(
+        @Path("color") color: String): Call<CommonResponse<List<CatalogItem>>>
+
+    @GET("catalog/recommendation/clothes/{color}")
+    fun getClothingRecommendation(
+        @Path("color") color: String): Call<CommonResponse<List<CatalogItem>>>
+
 }

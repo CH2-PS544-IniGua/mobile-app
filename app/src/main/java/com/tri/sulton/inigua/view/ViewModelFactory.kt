@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.tri.sulton.inigua.data.UserRepository
 import com.tri.sulton.inigua.di.Injection
+import com.tri.sulton.inigua.view.catalog.MainViewModel
 import com.tri.sulton.inigua.view.detailproduct.DetailProductViewModel
 import com.tri.sulton.inigua.view.login.LoginViewModel
-import com.tri.sulton.inigua.view.catalog.MainViewModel
 import com.tri.sulton.inigua.view.register.RegisterViewModel
 import com.tri.sulton.inigua.view.upload.UploadViewModel
 

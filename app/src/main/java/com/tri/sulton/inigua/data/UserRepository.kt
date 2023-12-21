@@ -48,7 +48,7 @@ class UserRepository private constructor(
     fun getProducts(): LiveData<PagingData<CatalogItem>> {
         @OptIn(ExperimentalPagingApi::class)
         return Pager(
-            config = PagingConfig(pageSize = 6),
+            config = PagingConfig(pageSize = 8),
             remoteMediator = ProductRemoteMediator(iniGuaDatabase, apiService),
             pagingSourceFactory = {
                 iniGuaDatabase.productDao().getAllCatalog()
@@ -57,6 +57,9 @@ class UserRepository private constructor(
     }
 
     fun getDetailProduct(id: String) = apiService.getDetailCatalog(id)
+
+    fun getPantsRecommendation(color: String) = apiService.getPantsRecommendation(color)
+    fun getClothingRecommendation(color: String) = apiService.getClothingRecommendation(color)
 
     fun uploadImage(imageFile: File, username: String) = liveData {
         emit(ResultState.Loading)

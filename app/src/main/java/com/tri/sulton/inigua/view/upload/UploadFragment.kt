@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,14 +12,12 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.tri.sulton.inigua.R
 import com.tri.sulton.inigua.data.ResultState
-import com.tri.sulton.inigua.databinding.FragmentProfileBinding
 import com.tri.sulton.inigua.databinding.FragmentUploadBinding
 import com.tri.sulton.inigua.helper.reduceFileImage
 import com.tri.sulton.inigua.helper.uriToFile
