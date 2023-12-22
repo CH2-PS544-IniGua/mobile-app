@@ -3,6 +3,7 @@ package com.tri.sulton.inigua.view
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.tri.sulton.inigua.data.UploadRepository
 import com.tri.sulton.inigua.data.UserRepository
 import com.tri.sulton.inigua.di.Injection
 import com.tri.sulton.inigua.view.catalog.MainViewModel
@@ -28,9 +29,6 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             modelClass.isAssignableFrom(DetailProductViewModel::class.java) -> {
                 DetailProductViewModel(repository) as T
             }
-            modelClass.isAssignableFrom(UploadViewModel::class.java) -> {
-                UploadViewModel(repository) as T
-            }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
@@ -47,6 +45,34 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
                 }
             }
             return INSTANCE as ViewModelFactory
+        }
+    }
+}
+
+class ViewModelUploadFactory(private val repository: UploadRepository) : ViewModelProvider.NewInstanceFactory() {
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return when {
+            modelClass.isAssignableFrom(UploadViewModel::class.java) -> {
+                UploadViewModel(repository) as T
+            }
+
+            else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
+        }
+    }
+
+    companion object {
+        @Volatile
+        private var INSTANCE: ViewModelUploadFactory? = null
+        @JvmStatic
+        fun getInstance(context: Context): ViewModelUploadFactory {
+            if (INSTANCE == null) {
+                synchronized(ViewModelUploadFactory::class.java) {
+                    INSTANCE = ViewModelUploadFactory(Injection.provideUploadRepository(context))
+                }
+            }
+            return INSTANCE as ViewModelUploadFactory
         }
     }
 }

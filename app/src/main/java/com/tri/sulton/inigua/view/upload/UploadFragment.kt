@@ -22,6 +22,7 @@ import com.tri.sulton.inigua.databinding.FragmentUploadBinding
 import com.tri.sulton.inigua.helper.reduceFileImage
 import com.tri.sulton.inigua.helper.uriToFile
 import com.tri.sulton.inigua.view.ViewModelFactory
+import com.tri.sulton.inigua.view.ViewModelUploadFactory
 import com.tri.sulton.inigua.view.camera.CameraActivity
 import com.tri.sulton.inigua.view.main.MainActivity
 
@@ -31,7 +32,7 @@ class UploadFragment : Fragment() {
     private val binding get() = _binding!!
     private var currentImageUri: Uri? = null
     private val viewModel by viewModels<UploadViewModel> {
-        ViewModelFactory.getInstance(requireActivity())
+        ViewModelUploadFactory.getInstance(requireActivity())
     }
 
     override fun onCreateView(
@@ -136,11 +137,11 @@ class UploadFragment : Fragment() {
                         }
 
                         is ResultState.Success -> {
-                            showToast(result.data.message)
+                            showToast(result.data.filename)
                             showLoading(false)
-                            val intent = Intent(requireContext(), MainActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                            startActivity(intent)
+//                            val intent = Intent(requireContext(), MainActivity::class.java)
+//                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+//                            startActivity(intent)
                         }
 
                         is ResultState.Error -> {

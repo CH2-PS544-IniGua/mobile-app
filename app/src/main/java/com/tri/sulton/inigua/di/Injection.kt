@@ -1,6 +1,7 @@
 package com.tri.sulton.inigua.di
 
 import android.content.Context
+import com.tri.sulton.inigua.data.UploadRepository
 import com.tri.sulton.inigua.data.UserRepository
 import com.tri.sulton.inigua.data.api.retrofit.ApiConfig
 import com.tri.sulton.inigua.data.database.IniGuaDatabase
@@ -16,5 +17,12 @@ object Injection {
         val apiService = ApiConfig.getApiService(user.token)
         val database = IniGuaDatabase.getDatabase(context)
         return UserRepository.getInstance(pref, database, apiService)
+    }
+
+    fun provideUploadRepository(context: Context): UploadRepository {
+        val pref = UserPreference.getInstance(context.dataStore)
+        val uploadService = ApiConfig.getUploadService()
+        val database = IniGuaDatabase.getDatabase(context)
+        return UploadRepository.getInstance(pref, database, uploadService)
     }
 }
