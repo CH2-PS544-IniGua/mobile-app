@@ -1,7 +1,10 @@
 package com.tri.sulton.inigua.data.api.model.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class UploadResponse(
 
     @field:SerializedName("filename")
@@ -28,4 +31,4 @@ data class UploadResponse(
 	@field:SerializedName("percentage_skin_clothes")
 	val percentage_skin_clothes: Int,
 
-)
+) : Parcelable

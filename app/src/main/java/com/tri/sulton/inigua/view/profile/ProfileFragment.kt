@@ -14,6 +14,8 @@ import com.tri.sulton.inigua.databinding.FragmentProfileBinding
 import com.tri.sulton.inigua.view.ViewModelFactory
 import com.tri.sulton.inigua.view.catalog.MainViewModel
 import com.tri.sulton.inigua.view.welcome.WelcomeActivity
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 
 class ProfileFragment : Fragment() {
@@ -40,6 +42,8 @@ class ProfileFragment : Fragment() {
             if (user.token.isEmpty()) {
                 startActivity(Intent(requireContext(), WelcomeActivity::class.java))
                 activity?.finish()
+            } else {
+                binding.toolbar.title = user.username
             }
         }
 

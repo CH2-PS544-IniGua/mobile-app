@@ -81,7 +81,8 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 if (loginResponse != null) {
                     val user = UserModel(
-                        token = loginResponse.data
+                        token = loginResponse.data,
+                        username = loginResponse.username,
                     )
                     viewModel.saveSession(user)
                     val intent = Intent(this, MainActivity::class.java)

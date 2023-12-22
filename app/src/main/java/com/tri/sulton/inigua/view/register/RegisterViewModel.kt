@@ -33,7 +33,7 @@ class RegisterViewModel(private val repository: UserRepository) : ViewModel() {
                 } else {
                     _registerResponse.value = LoginResponse(
                         status = "error",
-                        message = "Failed to create user: Username already taken",
+                        message = Constant.getErrorResponse(response.errorBody()!!.string()).message,
                         data = "",
                         username = ""
                     )

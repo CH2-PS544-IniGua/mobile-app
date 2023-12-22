@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,7 @@ import com.tri.sulton.inigua.view.ViewModelFactory
 import com.tri.sulton.inigua.view.ViewModelUploadFactory
 import com.tri.sulton.inigua.view.camera.CameraActivity
 import com.tri.sulton.inigua.view.main.MainActivity
+import com.tri.sulton.inigua.view.result.ResultActivity
 
 class UploadFragment : Fragment() {
 
@@ -127,7 +129,7 @@ class UploadFragment : Fragment() {
     private fun uploadImage() {
         currentImageUri?.let { uri ->
             val imageFile = uriToFile(uri, requireContext()).reduceFileImage()
-            val username = "cupang4"
+            val username = viewModel.username
 
             viewModel.uploadImage(imageFile, username).observe(requireActivity()) { result ->
                 if (result != null) {
@@ -137,11 +139,11 @@ class UploadFragment : Fragment() {
                         }
 
                         is ResultState.Success -> {
-                            showToast(result.data.filename)
                             showLoading(false)
-//                            val intent = Intent(requireContext(), MainActivity::class.java)
+                            val intent = Intent(requireContext(), ResultActivity::class.java)
+                            intent.putExtra(ResultActivity.EXTRA_RESULT, result.data)
 //                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-//                            startActivity(intent)
+                            startActivity(intent)
                         }
 
                         is ResultState.Error -> {

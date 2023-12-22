@@ -23,8 +23,6 @@ fun ColorRect(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
     ) {
         Text(
             text = "$title: $color",

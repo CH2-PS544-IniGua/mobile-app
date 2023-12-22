@@ -55,8 +55,8 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (username.length < 6) {
-                Toast.makeText(this, "Username must be at least 6 characters", Toast.LENGTH_SHORT).show()
+            if (username.length < 1) {
+                Toast.makeText(this, "Username must be at least 1 characters", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

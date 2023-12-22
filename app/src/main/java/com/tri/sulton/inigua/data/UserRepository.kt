@@ -63,27 +63,6 @@ class UserRepository private constructor(
     fun getPantsRecommendation(color: String) = apiService.getPantsRecommendation(color)
     fun getClothingRecommendation(color: String) = apiService.getClothingRecommendation(color)
 
-    fun uploadImage(imageFile: File, username: String) = liveData {
-        emit(ResultState.Loading)
-
-        wrapEspressoIdlingResource {
-            val requestBody = username.toRequestBody("text/plain".toMediaType())
-            val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
-            val multipartBody = MultipartBody.Part.createFormData(
-                "photo",
-                imageFile.name,
-                requestImageFile
-            )
-            try {
-                val successResponse = apiService.upload(multipartBody, requestBody)
-                emit(ResultState.Success(successResponse))
-            } catch (e: HttpException) {
-                val errorResponse = Constant.getErrorResponse(e.response()?.errorBody()?.string()!!)
-                emit(ResultState.Error(errorResponse.message))
-            }
-        }
-    }
-
     suspend fun saveSession(user: UserModel) {
         userPreference.saveSession(user)
     }

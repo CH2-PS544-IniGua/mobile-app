@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -80,6 +81,7 @@ dependencies {
     implementation("androidx.paging:paging-runtime-ktx:3.1.0")
 
     implementation("androidx.room:room-ktx:2.5.2")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.5.4")
     ksp("androidx.room:room-compiler:2.5.2")
     implementation("androidx.room:room-paging:2.4.0-rc01")
 
