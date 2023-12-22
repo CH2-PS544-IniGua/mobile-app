@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.tri.sulton.inigua.view.components.ColorRect
+import com.tri.sulton.inigua.view.components.PercentageCircle
 
 @Composable
 fun ResultScreen(
@@ -77,6 +78,37 @@ fun ResultScreen(
                 .height(1.dp)
                 .background(Color.LightGray)
         )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.SpaceAround,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            PercentageCircle(
+                title = "SKIN & CLOTHES",
+                number = percentage_skin_clothes,
+            )
+            PercentageCircle(
+                title = "CLOTHES & PANTS",
+                number = percentage_clothes_pants,
+            )
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            PercentageCircle(
+                title = "OVERALL",
+                number = when (percentage_clothes_pants) {
+                     0 -> percentage_skin_clothes
+                    else -> (percentage_skin_clothes + percentage_clothes_pants) / 2
+                                                         },
+            )
+        }
 
     }
 }
@@ -90,8 +122,8 @@ fun ResultScreenPreview() {
             "Brown",
             "Blue",
             "None",
-            87,
-            0
+            0,
+            87
         )
     }
 }
