@@ -27,6 +27,14 @@ object Constant {
             else -> 0xFFFFFFFF
         }
 
+    fun hexOfPercentage(number: Int): Long =
+        when (number) {
+            in 0..33 -> 0xFFD56587
+            in 34..66 -> 0xFFD5D165
+            in 67..100 -> 0xFF65D583
+            else -> 0xFFFFFFFF
+        }
+
     fun currency(number: Int): String {
         val decimalFormat = DecimalFormat("#,###")
         return "Rp" + decimalFormat.format(number.toLong()).replace(",", ".")
