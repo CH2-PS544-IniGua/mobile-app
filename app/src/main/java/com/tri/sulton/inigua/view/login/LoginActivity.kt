@@ -5,12 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.tri.sulton.inigua.data.api.model.Login
 import com.tri.sulton.inigua.data.pref.UserModel
 import com.tri.sulton.inigua.databinding.ActivityLoginBinding
+import com.tri.sulton.inigua.helper.Constant
 import com.tri.sulton.inigua.helper.fadeIn
 import com.tri.sulton.inigua.view.ViewModelFactory
 import com.tri.sulton.inigua.view.main.MainActivity
@@ -41,10 +43,17 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setupAction() {
         binding.loginButton.setOnClickListener {
-            val email = binding.emailEditText.text.toString()
+            val username = binding.usernameEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
 
-            val data = Login(email, password)
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val encryptedPassword = Constant.encodePassword(password)
+
+            val data = Login(username, encryptedPassword)
             viewModel.login(data)
         }
 
@@ -84,24 +93,30 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun playAnimation() {
-        val illustration = binding.imageView.fadeIn(750)
-        val emailLabel = binding.emailTextView.fadeIn()
-        val emailEdit = binding.emailEditTextLayout.fadeIn()
+        val title = binding.titleTextView.fadeIn(750)
+        val desc = binding.descTextView.fadeIn(750)
+        val illustration = binding.imageView.fadeIn()
+        val usernameLabel = binding.usernameTextView.fadeIn()
+        val usernameEdit = binding.usernameEditTextLayout.fadeIn()
         val passwordLabel = binding.passwordTextView.fadeIn()
         val passwordEdit = binding.passwordEditTextLayout.fadeIn()
         val login = binding.loginButton.fadeIn()
         val haveNoAccountLabel = binding.haveNoAccountTextView.fadeIn()
         val register = binding.registerTextView.fadeIn()
 
+        val titleAndDesc = AnimatorSet().apply {
+            playTogether(title, desc)
+        }
+
         val field = AnimatorSet().apply {
-            playTogether(emailLabel, emailEdit, passwordLabel, passwordEdit)
+            playTogether(usernameLabel, usernameEdit, passwordLabel, passwordEdit)
         }
         val loginAndNoAccount = AnimatorSet().apply {
             playTogether(login, haveNoAccountLabel, register)
         }
 
         AnimatorSet().apply {
-            playSequentially(illustration, field, loginAndNoAccount)
+            playSequentially(titleAndDesc, illustration, field, loginAndNoAccount)
             start()
         }
     }

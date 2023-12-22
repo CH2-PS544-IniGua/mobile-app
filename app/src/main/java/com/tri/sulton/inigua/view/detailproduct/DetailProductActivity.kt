@@ -49,7 +49,7 @@ class DetailProductActivity : AppCompatActivity() {
         }
 
         viewModel.errorResponse.observe(this) { errorResponse ->
-            if (errorResponse.error) {
+            if (errorResponse.status == "error") {
                 Toast.makeText(this, errorResponse.message, Toast.LENGTH_SHORT).show()
             }
         }

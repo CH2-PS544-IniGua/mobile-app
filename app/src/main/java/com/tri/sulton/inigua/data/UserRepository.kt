@@ -10,6 +10,7 @@ import androidx.paging.liveData
 import com.tri.sulton.inigua.data.api.model.Login
 import com.tri.sulton.inigua.data.api.model.Register
 import com.tri.sulton.inigua.data.api.model.response.CatalogItem
+import com.tri.sulton.inigua.data.api.model.response.LoginResponse
 import com.tri.sulton.inigua.data.api.retrofit.ApiConfig
 import com.tri.sulton.inigua.data.api.retrofit.ApiService
 import com.tri.sulton.inigua.data.database.IniGuaDatabase
@@ -22,6 +23,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import retrofit2.Call
 import retrofit2.HttpException
 import java.io.File
 
@@ -33,7 +35,7 @@ class UserRepository private constructor(
 
     private var token = ""
 
-    fun register(data: Register) = apiService.register(
+    fun register(data: Register): Call<LoginResponse> = apiService.register(
         username = data.username,
         password = data.password
     )

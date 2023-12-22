@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name" translatable="false">Ini Gua</string>
     <string name="signup">Sign Up</string>
-    <string name="login">Log In</string>
-    <string name="message_welcome_page">Every human has their own life. Share yours with others.</string>
-    <string name="title_welcome_page">Tell your story with Cerita Punyaku app.</string>
+    <string name="login">Login</string>
+    <string name="message_welcome_page">Discover your perfect match and elevate your beauty with personalized outfit suggestions. Unleash the power of color harmony in fashion right at your fingertips!</string>
+    <string name="title_welcome_page">Unlock effortless elegance with IniGua App.</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="name">Name</string>
@@ -35,4 +35,5 @@
     <string name="title_profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>

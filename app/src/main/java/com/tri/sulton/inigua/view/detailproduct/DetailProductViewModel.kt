@@ -42,7 +42,7 @@ class DetailProductViewModel(private val repository: UserRepository) : ViewModel
 
             override fun onFailure(call: Call<CommonResponse<List<CatalogItem>>>, t: Throwable) {
                 _errorResponse.value = ErrorResponse(
-                    error = true,
+                    status = "error",
                     message = t.message.toString()
                 )
             }
@@ -71,7 +71,7 @@ class DetailProductViewModel(private val repository: UserRepository) : ViewModel
             override fun onFailure(call: Call<CommonResponse<CatalogItem>>, t: Throwable) {
                 _isLoading.value = false
                 _errorResponse.value = ErrorResponse(
-                    error = true,
+                    status = "error",
                     message = t.message.toString()
                 )
             }

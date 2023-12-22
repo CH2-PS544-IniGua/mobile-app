@@ -1,5 +1,6 @@
 package com.tri.sulton.inigua.helper
 
+import android.util.Log
 import com.google.gson.Gson
 import com.tri.sulton.inigua.data.api.model.response.ErrorResponse
 import java.text.DecimalFormat
@@ -29,5 +30,14 @@ object Constant {
     fun currency(number: Int): String {
         val decimalFormat = DecimalFormat("#,###")
         return "Rp" + decimalFormat.format(number.toLong()).replace(",", ".")
+    }
+
+    fun encodePassword(password: String): String {
+        Log.d("Constant", "Password: $password")
+        val bytes = password.toByteArray()
+        val digest = java.security.MessageDigest.getInstance("SHA-256")
+        val hash = digest.digest(bytes)
+        Log.d("Constant", "encodePassword: $hash")
+        return hash.fold("", { str, it -> str + "%02x".format(it) })
     }
 }

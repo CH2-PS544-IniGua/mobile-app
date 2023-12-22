@@ -21,7 +21,7 @@ interface ApiService {
     fun register(
         @Field("username") username: String,
         @Field("password") password: String
-    ): Call<CommonResponse<String>>
+    ):  Call<LoginResponse>
 
     @FormUrlEncoded
     @POST("user/login")
