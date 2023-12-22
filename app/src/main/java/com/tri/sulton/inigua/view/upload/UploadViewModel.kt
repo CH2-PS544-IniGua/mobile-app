@@ -12,6 +12,7 @@ class UploadViewModel(private val repository: UploadRepository) : ViewModel() {
     fun uploadImage(file: File, username: String) = repository.uploadImage(file, username)
 
     var username = ""
+    var done = false
 
     init {
         getSession().observeForever {

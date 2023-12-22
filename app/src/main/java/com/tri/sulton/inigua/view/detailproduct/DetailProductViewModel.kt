@@ -24,6 +24,9 @@ class DetailProductViewModel(private val repository: UserRepository) : ViewModel
     private val _pantsRecommendation = MutableLiveData<List<CatalogItem>>()
     val pantsRecommendation: LiveData<List<CatalogItem>> = _pantsRecommendation
 
+    private val _clothingRecommendation = MutableLiveData<List<CatalogItem>>()
+    val clothingRecommendation: LiveData<List<CatalogItem>> = _clothingRecommendation
+
     fun getPantsRecommendation(color: String) {
         val client = repository.getPantsRecommendation(color)
         client.enqueue(object : Callback<CommonResponse<List<CatalogItem>>> {
@@ -35,6 +38,31 @@ class DetailProductViewModel(private val repository: UserRepository) : ViewModel
                 val responseBody = response.body()
                 if (response.isSuccessful && responseBody != null) {
                     _pantsRecommendation.value = responseBody.data
+                } else {
+                    _errorResponse.value = Constant.getErrorResponse(response.errorBody()!!.string())
+                }
+            }
+
+            override fun onFailure(call: Call<CommonResponse<List<CatalogItem>>>, t: Throwable) {
+                _errorResponse.value = ErrorResponse(
+                    status = "error",
+                    message = t.message.toString()
+                )
+            }
+        })
+    }
+
+    fun getClothingRecommendation(color: String) {
+        val client = repository.getClothingRecommendation(color)
+        client.enqueue(object : Callback<CommonResponse<List<CatalogItem>>> {
+            override fun onResponse(
+                call: Call<CommonResponse<List<CatalogItem>>>,
+                response: Response<CommonResponse<List<CatalogItem>>>
+            ) {
+                _isLoading.value = false
+                val responseBody = response.body()
+                if (response.isSuccessful && responseBody != null) {
+                    _clothingRecommendation.value = responseBody.data
                 } else {
                     _errorResponse.value = Constant.getErrorResponse(response.errorBody()!!.string())
                 }

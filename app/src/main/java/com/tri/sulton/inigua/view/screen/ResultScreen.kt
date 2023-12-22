@@ -40,7 +40,6 @@ fun ResultScreen(
 ) {
     Column(
         modifier = modifier
-            .verticalScroll(rememberScrollState())
     ) {
         AsyncImage(
             model = predict_image,

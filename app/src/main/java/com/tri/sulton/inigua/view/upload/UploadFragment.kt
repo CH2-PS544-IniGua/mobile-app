@@ -13,6 +13,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
@@ -51,6 +52,18 @@ class UploadFragment : Fragment() {
 
         setupView()
         setupAction()
+
+        if (!viewModel.done) {
+            AlertDialog.Builder(requireContext()).apply {
+                setTitle("Perhatian")
+                setMessage(getString(R.string.alert))
+                setPositiveButton("OK") { _, _ ->
+                }
+                create()
+                show()
+            }
+            viewModel.done = true
+        }
     }
 
     private fun setupView() {

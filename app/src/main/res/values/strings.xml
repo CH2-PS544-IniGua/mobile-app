@@ -36,4 +36,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="alert">Untuk memastikan kinerja optimal fitur ini, harap memperhatikan kriteria berikut sebelum mengunggah gambar:\n\n1. Foto harus menampilkan satu orang dalam posisi berdiri.\n2. Dilarang menggunakan aksesoris di kepala, seperti topi dan masker.\n3. Mohon memaksimalkan pencahayaan dalam foto.\n4. Disarankan untuk menghindari penggunaan pakaian dengan banyak kombinasi warna.\n\nPemahaman dan pengikutan terhadap kriteria ini akan membantu memastikan hasil yang akurat dan memuaskan saat menggunakan fitur ini.</string>
 </resources>

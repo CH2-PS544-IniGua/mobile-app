@@ -24,22 +24,11 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/toolbar"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/white"-->
-<!--        android:minHeight="?attr/actionBarSize"-->
-<!--        android:theme="?attr/actionBarTheme"-->
-<!--        app:title="sulton"-->
-<!--        />-->
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="halo profile"
+        android:text="History Empty"
         android:gravity="center"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

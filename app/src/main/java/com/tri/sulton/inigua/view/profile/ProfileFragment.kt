@@ -65,10 +65,6 @@ class ProfileFragment : Fragment() {
                     }
                     true
                 }
-                R.id.language -> {
-                    startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
-                    true
-                }
                 else -> false
             }
         }
